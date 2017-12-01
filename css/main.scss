@@ -14,6 +14,12 @@ html, body, .full-screen {
 .full-screen {
 	width: 100%;
 	height: 100vh;
+	background-image: url(../images/bg.jpg);
+	background-color: white;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	font-family: 'Open Sans', sans-serif;
 }
 .main-nav {
 	display: block;
@@ -40,38 +46,31 @@ html, body, .full-screen {
 		border-bottom: 3px solid #b6d1ed;
 	}
 }
-.container {
-	background-image: url(../images/bg.jpg);
-	background-color: white;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+/*.container {
 	width: 100%;
 	display: block;
 	text-align: center;
-}
+}*/
 .yelka-container {
-	/*background-image: url(../images/yelka.png);
-	background-color: white;
-	background-size: auto 100%;
-	background-position: center;
-	background-repeat: no-repeat;*/
 	width: 100%;
 	display: block;
 	text-align: center;
 	position: relative;
-}
-.yelka {
-	padding: 60px 0;
-	height: calc(100vh - 150px);
+	height: calc(100vh - 90px);
+
 	img {
-		height: 100%;
+		height: 85%;
+	}
+	p {
+		font-size: 20px;
+		max-height: 10%;
+		max-width: 500px;
+		margin: 0 auto;
 	}
 }
-.yelka-lights {
-	display: inline-block;
-	padding: 60px 0;
-	height: calc(100vh - 150px);
+
+/*.yelka-lights {
+
 	.lightbulbs {
 		position: absolute;
 
@@ -168,4 +167,4 @@ html, body, .full-screen {
 		box-shadow: 0px $globe-height/6 $globe-width*2 $globe-spread rgba(247,0,148,1);} 
 		50% { background: rgba(247,0,148,$light-off-opacity);
 			box-shadow: 0px $globe-height/6 $globe-width*2 $globe-spread rgba(247,0,148,0.2);}
-		}
+		}*/
