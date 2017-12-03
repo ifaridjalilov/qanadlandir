@@ -10,23 +10,44 @@
 </head>
 <body>
 	<div class="full-screen-index">
-			<nav class="main-nav">
+		<nav class="main-nav">
+			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+			<div class="main-nav-links">
 				<a href="index.html" class="selected">Ana səhifə</a>
 				<a href="register.html">Qeydiyyat</a>
 				<a href="dream.html">Arzunu yetir</a>
-			</nav>
+			</div>
+		</nav>
+
+		<div id="nav-phones" class="overlay">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="overlay-content">
+				<a href="index.html" class="selected">Ana səhifə</a>
+				<a href="register.html">Qeydiyyat</a>
+				<a href="dream.html">Arzunu yetir</a>
+			</div>
+		</div>
 
 		<div class="container">
 			<div class="yelka-container">
-					<img src="images/yelka.png" alt="Yelka" class="yelka">
-					<div class="lights-grid">
-						
-					</div>
+				<img src="images/yelka.png" alt="Yelka" class="yelka">
+				<div class="lights-grid">
+
+				</div>
 			</div>
 
 			<!-- <p>Oyuncaqlardan hər hansı birinə tıklayaraq müvafiq uşağın Şaxta babaya məktubunu oxuyaraq arzusunu öyrənəcəksiniz.</p> -->
 		</div>
 	</div>
 	<script src="js/jquery-3.2.1.min.js"></script>
+	<script>
+	function openNav() {
+		document.getElementById("nav-phones").style.width = "100%";
+	}
+
+	function closeNav() {
+		document.getElementById("nav-phones").style.width = "0%";
+	}
+	</script>
 </body>
 </html>

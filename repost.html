@@ -11,10 +11,22 @@
 <body>
   <div class="full-screen-repost">
     <nav class="main-nav">
-      <a href="index.html">Ana səhifə</a>
-      <a href="register.html">Qeydiyyat</a>
-      <a href="dream.html" class="selected">Arzunu yetir</a>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <div class="main-nav-links">
+        <a href="index.html" class="selected">Ana səhifə</a>
+        <a href="register.html">Qeydiyyat</a>
+        <a href="dream.html">Arzunu yetir</a>
+      </div>
     </nav>
+
+    <div id="nav-phones" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="index.html" class="selected">Ana səhifə</a>
+        <a href="register.html">Qeydiyyat</a>
+        <a href="dream.html">Arzunu yetir</a>
+      </div>
+    </div>
 
 
     <div class="container">
@@ -23,18 +35,27 @@
           <div class="repost-text">
             <img src="images/cloud-text.png" alt="Cloud for text">
             <h1>Repost et<br>
-            Dostlarına danış!<br>
-            Hər repost hədiyyə olaraq geri dönə bilər!</h1>
+              Dostlarına danış!<br>
+              Hər repost hədiyyə olaraq geri dönə bilər!</h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <img src="images/devocka.png" alt="X-mas girl" style="max-height: 340px;">
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <img src="images/devocka.png" alt="X-mas girl" style="max-height: 340px;">
-        </div>
-      </div>
     </div>
-  </div>
-  <script src="js/jquery-3.2.1.min.js"></script>
-</body>
-</html>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+    function openNav() {
+      document.getElementById("nav-phones").style.width = "100%";
+    }
+
+    function closeNav() {
+      document.getElementById("nav-phones").style.width = "0%";
+    }
+    </script>
+  </body>
+  </html>

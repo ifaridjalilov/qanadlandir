@@ -174,9 +174,71 @@ html, body, .full-screen {
     color: #433440;
     font-size: 16px;
   }
+  .main-nav-links {
+    display: none;
+  }
+  span {
+    color: #433440;
+    display: block;
+  }
   .selected {
     padding: 10px;
     border-bottom: 3px solid $selected-color;
+  }
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(243,221,233);
+    background-color: rgba(243,221,233, 0.9);
+    background: rgba(243,221,233,0.8); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(243,221,233,0.8) 0%, rgba(249,220,206,0.8) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(243,221,233,0.8) 0%,rgba(249,220,206,0.8) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(243,221,233,0.8) 0%,rgba(249,220,206,0.8) 100%); /* W3C,IE10+,FF16+,Chrome26+,Opera12+,Safari7+*/
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3dde9', endColorstr='#f9dcce',GradientType=0.8 ); /* IE6-9 */
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: $open-blue-color;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
 }
 
@@ -332,6 +394,16 @@ html, body, .full-screen {
 /*	Media Queries
 /*************************/
 
+@media only screen and (min-width: 600px) {
+  .main-nav {
+    span {
+      display: none;
+    }
+    .main-nav-links {
+      display: block;
+    }
+  }
+}
 @media only screen and (min-width: 768px) {
   .full-screen-register {
     .iqrushki {
