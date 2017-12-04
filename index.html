@@ -32,7 +32,6 @@
 			<div class="yelka-container">
 				<img src="images/yelka.png" alt="Yelka" class="yelka">
 				<div class="lights-grid">
-
 				</div>
 			</div>
 
@@ -41,13 +40,64 @@
 	</div>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script>
-	function openNav() {
-		document.getElementById("nav-phones").style.width = "100%";
-	}
+		function openNav() {
+			document.getElementById("nav-phones").style.width = "100%";
+		}
 
-	function closeNav() {
-		document.getElementById("nav-phones").style.width = "0%";
-	}
+		function closeNav() {
+			document.getElementById("nav-phones").style.width = "0%";
+		}
+		function makeLights(size) {
+			var lights = document.getElementsByClassName('lights-grid');
+			var count = 0;
+			var temp = count;
+			for (var i = 1; i <= 21; i++) {
+				var light = document.createElement('div');
+				light.className = "bulb";
+				lights[0].appendChild(light);
+				count++;
+				if (count == (temp + 1) ) {
+					temp = count;
+					count = 0;
+					lights[0].appendChild(document.createElement('br'));
+				}
+				var topRand = 8 - Math.floor(Math.random() * 16) + 1;
+				var leftRand = 7 - Math.floor(Math.random() * 14) + 1;
+				$(light).css({
+					'margin-right' : size * 0.026 - leftRand,
+					'margin-left' : size * 0.026 + leftRand,
+					'margin-top' : size * 0.03 + topRand,
+					'margin-bottom' : size * 0.03 - topRand
+				});
+			}
+		}
+
+		$(function() {
+
+			var size = $('.yelka-container').width() > $('.yelka-container').height() ? $('.yelka-container').width() : $('.yelka-container').height();
+
+			makeLights(size);
+
+			$('.bulb').css({
+				'width' : size * 0.04,
+				'height' : size * 0.04
+			});
+
+			$('.bulb').click(function() {
+				window.location.href = 'dream.html';
+			});
+
+			$(window).resize(function() {
+				size = $('.yelka-container').width() > $('.yelka-container').height() ? $('.yelka-container').width() : $('.yelka-container').height();
+				$('.lights-grid').html('');
+				makeLights(size);
+				$('.bulb').css({
+					'width' : size * 0.04,
+					'height' : size * 0.04
+				});
+			});
+		});
+
 	</script>
 </body>
 </html>

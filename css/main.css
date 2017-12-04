@@ -424,11 +424,61 @@ html, body, .full-screen, .full-screen-index, .full-screen-register, .full-scree
     height: 100%;
     display: block;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 15%;
+    left: 1%;
     right: 0;
-    bottom: 0; }
+    bottom: 20%;
+    text-align: center; }
+    .yelka-container .lights-grid .bulb {
+      cursor: pointer;
+      display: inline-block;
+      width: calc(1% + 10px);
+      height: calc(1% + 10px);
+      margin: auto;
+      background-color: red;
+      border-radius: 50%;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+      background: #00f7a5;
+      box-shadow: 0px 2.5px 30px 3px #00f7a5;
+      animation-name: flash-1;
+      animation-duration: 2s; }
+      .yelka-container .lights-grid .bulb:nth-child(2n+1) {
+        background: cyan;
+        box-shadow: 0px 2.5px 30px 3px rgba(0, 255, 255, 0.5);
+        animation-name: flash-2;
+        animation-duration: 0.4s; }
+      .yelka-container .lights-grid .bulb:nth-child(4n+2) {
+        background: #f70094;
+        box-shadow: 0px 2.5px 30px 3px #f70094;
+        animation-name: flash-3;
+        animation-duration: 1.1s; }
+      .yelka-container .lights-grid .bulb:nth-child(odd) {
+        animation-duration: 1.8s; }
+      .yelka-container .lights-grid .bulb:nth-child(3n+1) {
+        animation-duration: 1.4s; }
 
+@keyframes flash-1 {
+  0%, 100% {
+    background: #00f7a5;
+    box-shadow: 0px 2.5px 30px 3px #00f7a5; }
+  50% {
+    background: rgba(0, 247, 165, 0.6);
+    box-shadow: 0px 2.5px 30px 3px rgba(0, 247, 165, 0.2); } }
+@keyframes flash-2 {
+  0%, 100% {
+    background: cyan;
+    box-shadow: 0px 2.5px 30px 3px cyan; }
+  50% {
+    background: rgba(0, 255, 255, 0.6);
+    box-shadow: 0px 2.5px 30px 3px rgba(0, 255, 255, 0.2); } }
+@keyframes flash-3 {
+  0%, 100% {
+    background: #f70094;
+    box-shadow: 0px 2.5px 30px 3px #f70094; }
+  50% {
+    background: rgba(247, 0, 148, 0.6);
+    box-shadow: 0px 2.5px 30px 3px rgba(247, 0, 148, 0.2); } }
 /*************************/
 /*	Media Queries
 /*************************/
