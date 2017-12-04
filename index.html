@@ -11,7 +11,12 @@
 <body>
 	<div class="full-screen-index">
 		<nav class="main-nav">
-			<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+			<div class="hamburger" onclick="openNav()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+
 			<div class="main-nav-links">
 				<a href="index.html" class="selected">Ana səhifə</a>
 				<a href="register.html">Qeydiyyat</a>
@@ -31,8 +36,7 @@
 		<div class="container">
 			<div class="yelka-container">
 				<img src="images/yelka.png" alt="Yelka" class="yelka">
-				<div class="lights-grid">
-				</div>
+				<div id="lights-grid"></div>
 			</div>
 
 			<!-- <p>Oyuncaqlardan hər hansı birinə tıklayaraq müvafiq uşağın Şaxta babaya məktubunu oxuyaraq arzusunu öyrənəcəksiniz.</p> -->
@@ -41,60 +45,47 @@
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script>
 		function openNav() {
-			document.getElementById("nav-phones").style.width = "100%";
+			$("#nav-phones").width("100%");
+			$(".hamburger").fadeOut();
 		}
-
 		function closeNav() {
-			document.getElementById("nav-phones").style.width = "0%";
+			$("#nav-phones").width("0%");
+			$(".hamburger").fadeIn();
 		}
 		function makeLights(size) {
-			var lights = document.getElementsByClassName('lights-grid');
+			$('#lights-grid').html('');
+
 			var count = 0;
 			var temp = count;
-			for (var i = 1; i <= 21; i++) {
-				var light = document.createElement('div');
-				light.className = "bulb";
-				lights[0].appendChild(light);
+			for (var i = 1; i <= 24; i++) {
+				$('#lights-grid').append('<a href="dream.html" class="bulb"></a>');
 				count++;
 				if (count == (temp + 1) ) {
 					temp = count;
 					count = 0;
-					lights[0].appendChild(document.createElement('br'));
+					$('#lights-grid').append('<br>');
 				}
 				var topRand = 8 - Math.floor(Math.random() * 16) + 1;
 				var leftRand = 7 - Math.floor(Math.random() * 14) + 1;
-				$(light).css({
-					'margin-right' : size * 0.026 - leftRand,
-					'margin-left' : size * 0.026 + leftRand,
-					'margin-top' : size * 0.03 + topRand,
-					'margin-bottom' : size * 0.03 - topRand
+				$('.bulb').last().css({
+					'width' : size * 0.04,
+					'height' : size * 0.04,
+					'margin-right' : size * 0.028 - leftRand,
+					'margin-left' : size * 0.028 + leftRand,
+					'margin-top' : size * 0.025 + topRand,
+					'margin-bottom' : size * 0.025 - topRand
 				});
 			}
 		}
 
-		$(function() {
+		$(document).ready(function() {
 
 			var size = $('.yelka-container').width() > $('.yelka-container').height() ? $('.yelka-container').width() : $('.yelka-container').height();
-
 			makeLights(size);
-
-			$('.bulb').css({
-				'width' : size * 0.04,
-				'height' : size * 0.04
-			});
-
-			$('.bulb').click(function() {
-				window.location.href = 'dream.html';
-			});
 
 			$(window).resize(function() {
 				size = $('.yelka-container').width() > $('.yelka-container').height() ? $('.yelka-container').width() : $('.yelka-container').height();
-				$('.lights-grid').html('');
 				makeLights(size);
-				$('.bulb').css({
-					'width' : size * 0.04,
-					'height' : size * 0.04
-				});
 			});
 		});
 
